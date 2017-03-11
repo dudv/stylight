@@ -1,3 +1,98 @@
+menu {
+  position: fixed;
+  z-index: 1;
+  color: white;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+@media screen and (min-width: 800px) {
+  menu {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #333;
+  }
+  menu .menu-content {
+    display: flex;
+  }
+  menu .menu-toggle {
+    display: none;
+  }
+  menu .menu-item-list {
+    order: 1;
+  }
+  menu .menu-item-list .menu-item {
+    display: inline-block;
+    position: relative;
+  }
+  menu .menu-item-list .menu-item .label {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+  menu .menu-item-list .menu-item .menu-item-sublist {
+    display: none;
+    position: absolute;
+    background-color: #333;
+  }
+  menu .menu-item-list .menu-item .menu-item-sublist .label {
+    font-size: 13px;
+  }
+  menu .menu-item-list .menu-item:hover .menu-item-sublist {
+    display: block;
+  }
+  menu input[type="search"] {
+    order: 2;
+    flex-grow: 1000;
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 799px) {
+  menu {
+    padding: 0;
+  }
+  menu .menu-toggle {
+    display: block;
+    background-color: #333;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+  }
+  menu .menu-toggle.toggled + .menu-content {
+    left: 0;
+  }
+  menu .menu-content {
+    background-color: #333;
+    padding: 20px 10px;
+    left: -500px;
+    transition: left linear 0.5s;
+    position: fixed;
+    height: 100%;
+  }
+  menu .menu-content .menu-item-list .menu-item {
+    overflow-y: hidden;
+    transition: all cubic-bezier(0, 1, 0.5, 1) 0.5s;
+    max-height: 31px;
+  }
+  menu .menu-content .menu-item-list .menu-item .label {
+    font-size: 18px;
+    font-family: sans-serif;
+    cursor: pointer;
+    padding: 5px 0;
+  }
+  menu .menu-content .menu-item-list .menu-item .menu-item-sublist {
+    margin-left: 15px;
+  }
+  menu .menu-content .menu-item-list .menu-item .menu-item-sublist .label {
+    padding: 2px 0;
+    font-size: 16px;
+  }
+  menu .menu-content .menu-item-list .menu-item.toggled {
+    overflow-y: visible;
+    max-height: 600px;
+  }
+}
 body {
   margin: 0;
 }

@@ -1,0 +1,113 @@
+menu {
+	position: fixed;
+	z-index: 1;
+	color: white;
+	top: 0;
+	left: 0;
+	margin: 0;
+
+	// desktop menu
+	@media screen and (min-width: 800px) {
+		width: 100%;
+		padding: 15px 0;
+		background-color: #333;
+
+		.menu-content {
+			display: flex;
+		}
+
+		.menu-toggle {
+			display: none;
+		}
+
+		.menu-item-list {
+			order: 1;
+			.menu-item {
+				display: inline-block;
+				position: relative;
+
+				.label {
+					padding: 5px 10px;
+					font-size: 16px;
+					font-family: sans-serif;
+					cursor: pointer;
+				}
+
+				.menu-item-sublist {
+					display: none;
+					position: absolute;
+					background-color: #333;
+					.label {
+						font-size: 13px;
+					}
+				}
+
+				&:hover {
+					.menu-item-sublist {
+						display: block;
+					}
+				}
+			}
+		}
+
+		input[type="search"] {
+			order: 2;
+			flex-grow: 1000; // occupy all the space left
+			margin-right: 15px;
+		}
+	}
+
+	// mobile menu
+	@media screen and (max-width: 799px) {
+		padding: 0;
+
+		.menu-toggle {
+			display: block;
+			background-color: #333;
+			cursor: pointer;
+			width: 48px;
+			height: 48px;
+		}
+
+		.menu-toggle.toggled + .menu-content {
+			left: 0;
+		}
+
+		.menu-content {
+			background-color: #333;	
+			padding: 20px 10px;
+			left: -500px;
+			transition: left linear 0.5s;
+			position: fixed;
+			height: 100%;
+
+			.menu-item-list {
+				.menu-item {
+					overflow-y: hidden;
+					transition: all cubic-bezier(0, 1, 0.5, 1) 0.5s;
+					max-height: 31px;
+
+					.label {
+						font-size: 18px;
+						font-family: sans-serif;
+						cursor: pointer;
+						padding: 5px 0;
+					}
+					.menu-item-sublist {
+						margin-left: 15px;
+
+						.label {
+							padding: 2px 0;
+							font-size: 16px;
+						}
+					}
+
+					&.toggled {
+						overflow-y: visible;
+						max-height: 600px;
+					}
+				}
+			}
+		}
+	}
+}

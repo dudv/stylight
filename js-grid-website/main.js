@@ -26,3 +26,17 @@ const refreshGrid = (gridSelector) => {
 const onWindowResize = refreshGrid.bind(null, '.grid')
 window.onresize = onWindowResize
 onWindowResize()
+
+// menu events binding
+const menuItems = [...document.querySelectorAll('.menu-item-list>.menu-item')]
+const toggledClass = 'toggled'
+menuItems.map(item => {
+	item.addEventListener('click', function() {
+		menuItems.map(item => item !== this && item.classList.remove(toggledClass))
+		this.classList.toggle(toggledClass)
+	});
+});
+
+document.getElementsByClassName('menu-toggle')[0].addEventListener('click', function() {
+	this.classList.toggle(toggledClass)
+})
