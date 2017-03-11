@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+header {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 0 15px;
+}
+header p {
+  text-align: justify;
+}
+@media screen and (min-width: 1024px) {
+  header p {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+.grid {
+  display: block;
+  text-align: center;
+  position: relative;
+}
+.grid:hover .grid-item:not(:hover) {
+  opacity: 0.5;
+}
+.grid .grid-item {
+  display: inline-block;
+  margin-bottom: 10px;
+  background-image: url("https://source.unsplash.com/category/nature");
+  width: 340px;
+  transition: opacity linear 0.3s;
+  position: absolute;
+}

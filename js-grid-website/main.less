@@ -25,8 +25,7 @@ header {
 	@col-width: 340px;
 	display: block;
 	text-align: center;
-	.prefix(column-width, @col-width);
-	.prefix(column-gap, 15px);
+	position: relative;
 
 	&:hover .grid-item:not(:hover) {
 		opacity: 0.5;
@@ -38,17 +37,6 @@ header {
 		background-image: url("https://source.unsplash.com/category/nature"); //returns random nature images
 		width: @col-width;
 		transition: opacity linear 0.3s;
+		position: absolute;
 	}
-
-	// generate rules for .grid-item in LESS loop
-	// evaluate JS expression to get random element heights
-	@iterations: 4;
-	.mixin-loop (@i) when (@i > 0) {
-		.grid-item:nth-child(5n + @{i}) {
-			@var: `Math.floor(200 + Math.random() * 400)`;
-			height: unit(@var, px);
-		}
-		.mixin-loop(@i - 1);
-	}
-	.mixin-loop(@iterations);
 }
