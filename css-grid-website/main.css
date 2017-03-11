@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+}
+header {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 0 15px;
+}
+header p {
+  text-align: justify;
+}
+@media screen and (min-width: 1024px) {
+  header p {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+.grid {
+  display: block;
+  text-align: center;
+  -webkit-column-width: 340px;
+  -moz-column-width: 340px;
+  column-width: 340px;
+  -webkit-column-gap: 15px;
+  -moz-column-gap: 15px;
+  column-gap: 15px;
+}
+.grid:hover .grid-item:not(:hover) {
+  opacity: 0.5;
+}
+.grid .grid-item {
+  display: inline-block;
+  margin-bottom: 10px;
+  background-image: url("https://source.unsplash.com/category/nature");
+  width: 340px;
+  transition: opacity linear 0.3;
+}
+.grid .grid-item:nth-child(5n + 4) {
+  height: 379px;
+}
+.grid .grid-item:nth-child(5n + 3) {
+  height: 464px;
+}
+.grid .grid-item:nth-child(5n + 2) {
+  height: 425px;
+}
+.grid .grid-item:nth-child(5n + 1) {
+  height: 226px;
+}
